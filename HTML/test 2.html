@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Popup</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                Law Enforcement System
+            </div>
+            <ul class="nav-links">
+                <<!DOCTYPE html>
+                <html lang="en">
+                
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Dashboard - Police Front Case and Reports Management System</title>
+                    <link rel="stylesheet" href="dashboard.css">
+                </head>
+                
+                <body>
+                    <header>
+                        <nav>
+                            <div class="logo">
+                                Law Enforcement System
+                            </div>
+                            <ul class="nav-links">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="cases.html">Cases</a></li>
+                                <li><a href="reports.html">Reports</a></li>
+                                <li><a href="officers.html">Officers</a></li>
+                                <li><a href="settings.html">Settings</a></li>
+                                <li>
+                                    <a href="#" class="login-btn">Logout</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </header>
+                
+                    <section class="dashboard">
+                        <div class="dashboard-content">
+                            <h1>Welcome to the Dashboard</h1>
+                            <p>Here you can manage your cases and reports.</p>
+                            <!-- Add necessary buttons for case and report management -->
+                            <button class="dashboard-btn" onclick="window.location.href='cases.html'">View Cases</button>
+                            <button class="dashboard-btn">Create New Case</button>
+                            <button class="dashboard-btn" onclick="window.location.href='reports.html'">View Reports</button>
+                            <button class="dashboard-btn">Create New Report</button>
+                        </div>
+                    </section>
+                
+                    <!-- Add other sections/content as needed -->
+                
+                    <script>
+                        document.querySelector(".login-btn").addEventListener("click", function () {
+                            window.location.href = "login.html";
+                        });
+                    </script>
+                </body>
+                
+                </html>
+                li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li>
+                    <a href="#" onclick="openPopup()">Login</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Law Enforcement System</h1>
+            <p>Empowering justice and security</p>
+        </div>
+    </section>
+
+    <!-- Entails Section -->
+    <section class="entails">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-items">
+                <div class="service-item">
+                    <i class="bx bx-shield"></i>
+                    <h3>Crime Reporting</h3>
+                    <p>Report crimes online and help keep your community safe.</p>
+                </div>
+                <div class="service-item">
+                    <i class="bx bx-search-alt"></i>
+                    <h3>Case Management</h3>
+                    <p>Efficiently manage and track ongoing investigations.</p>
+                </div>
+                <div class="service-item">
+                    <i class="bx bx-bar-chart"></i>
+                    <h3>Analytics & Insights</h3>
+                    <p>Access valuable data and generate meaningful reports.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add other sections/content as needed -->
+
+    <div id="loginPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <h2>Login</h2>
+            <form>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+            <div class="bottom-links">
+                <a href="#">Forgot Password?</a>
+                <span>Don't have an account? <a href="#">Sign Up</a></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function openPopup() {
+            document.getElementById("loginPopup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("loginPopup").style.display = "none";
+        }
+    </script>
+</body>
+</html>

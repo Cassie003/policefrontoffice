@@ -1,0 +1,52 @@
+/* Reset default margin and padding */
+/* ... (previous styles) ... */
+
+.entails {
+    background-color: #0c2340;
+    color: #fff;
+    padding: 40px 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .service-items {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+  
+  .service-item {
+    text-align: center;
+    width: 30%;
+  }
+  
+  .service-item h3 {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .service-item p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .icon-container {
+    width: 100px;
+    height: 100px;
+    background-color: #d62d20;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 40px;
+  }
+  
+  .icon-container i {
+    color: #fff;
+  }
+  

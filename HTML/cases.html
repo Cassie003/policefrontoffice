@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Law Enforcement System</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        /* High-tech design styles */
+
+        /* Body and background */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #1e1e1e;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header and navigation */
+        header {
+            background-color: #000;
+            padding: 10px 0;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            list-style: none;
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #d62d20;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #000;
+            color: #fff;
+            height: 100vh;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            padding-top: 60px;
+            transition: left 0.3s ease;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar ul {
+            padding-left: 0;
+        }
+
+        .sidebar li {
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #1e1e1e;
+        }
+
+        /* Main content */
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .main-content.active {
+            margin-left: 0;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .page-header h2 {
+            font-size: 24px;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        /* Data table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .data-table th {
+            background-color: #000;
+            color: #fff;
+            font-weight: normal;
+        }
+
+        .data-table td {
+            border-bottom: 1px solid #1e1e1e;
+        }
+
+        .data-table tr:hover {
+            background-color: #1e1e1e;
+        }
+
+        /* Logout button */
+        .logout-btn {
+            background-color: #d62d20;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #fff;
+            color: #d62d20;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <i class="bx bx-menu" id="menu-icon"></i>
+            <div class="logo">
+                Law Enforcement System
+            </div>
+            <div class="search-box container">
+                <input type="search" name="" id="" placeholder="search here....">
+            </div>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="cases.html">Cases</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="officers.html">Officers</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li>
+                    <button class="logout-btn" onclick="window.location.href = 'login.html';">Logout</button
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="dashboard.html"><i class='bx bxs-dashboard'></i> Dashboard</a></li>
+            <li><a href="cases.html"><i class='bx bx-list-ul'></i> Cases</a></li>
+            <li><a href="reports.html"><i class='bx bx-bar-chart'></i> Reports</a></li>
+            <li><a href="officers.html"><i class='bx bx-user'></i> Officers</a></li>
+            <li><a href="settings.html"><i class='bx bx-cog'></i> Settings</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content" id="main-content">
+        <div class="page-header">
+            <h2>Dashboard</h2>
+            <div class="user-profile">
+                <img src="user-profile-image.jpg" alt="User Profile">
+                <span>Welcome, John Doe</span>
+            </div>
+        </div>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Case ID</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>Active</td>
+                    <td>2023-07-20</td>
+                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>Closed</td>
+                    <td>2023-07-19</td>
+                    <td>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+                </tr>
+                <!-- Add more data rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#menu-icon").click(function () {
+                $("#sidebar").toggleClass("active");
+                $("#main-content").toggleClass("active");
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+/* Reset some default styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f0f0f0; /* Set the background color here */
+}
+
+/* Header Styles */
+header {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 1rem;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-links li {
+    margin-right: 1rem;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #0056b3;
+}
+
+/* Reports Section Styles */
+.reports {
+    padding: 2rem;
+}
+
+.reports-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.reports h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+#searchBtn {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#searchBtn:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+table th,
+table td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+table th {
+    font-weight: bold;
+    background-color: #f0f0f0;
+}
+
+/* Add styles for active and closed reports */
+table td:nth-child(4) {
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+table td[data-status="active"] {
+    color: green;
+}
+
+table td[data-status="closed"] {
+    color: red;
+}
+
+/* Add responsive styles if needed */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links li {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .nav-links a:hover {
+        background-color: #0056b3;
+    }
+}

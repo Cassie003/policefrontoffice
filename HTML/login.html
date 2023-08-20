@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Law Enforcement System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        /* High-tech design styles */
+
+        /* Body and background */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #1e1e1e;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header and navigation */
+        header {
+            background-color: #000;
+            padding: 10px 0;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            list-style: none;
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #d62d20;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #000;
+            color: #fff;
+            height: 100vh;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            padding-top: 60px;
+            transition: left 0.3s ease;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar ul {
+            padding-left: 0;
+        }
+
+        .sidebar li {
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #1e1e1e;
+        }
+
+        /* Main content */
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .main-content.active {
+            margin-left: 0;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .page-header h2 {
+            font-size: 24px;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        /* Data table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .data-table th {
+            background-color: #000;
+            color: #fff;
+            font-weight: normal;
+        }
+
+        .data-table td {
+            border-bottom: 1px solid #1e1e1e;
+        }
+
+        .data-table tr:hover {
+            background-color: #1e1e1e;
+        }
+
+        /* Logout button */
+        .logout-btn {
+            background-color: #d62d20;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #fff;
+            color: #d62d20;
+        }
+
+        /* Popup styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            color: #fff;
+            z-index: 9999;
+            max-width: 400px;
+        }
+
+        .popup h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .popup form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .popup .form-group {
+            margin-bottom: 20px;
+        }
+
+        .popup label {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .popup input[type="text"],
+        .popup input[type="password"],
+        .popup input[type="email"] {
+            padding: 10px;
+            border: 1px solid #1e1e1e;
+            border-radius: 4px;
+        }
+
+        .popup .submit-btn {
+            background-color: #d62d20;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .popup .submit-btn:hover {
+            background-color: #fff;
+            color: #d62d20;
+        }
+
+        .popup .terms-and-conditions {
+            margin-top: 10px;
+        }
+
+        .bottom-links a {
+            color: #d62d20;
+            text-decoration: none;
+        }
+
+        .bottom-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero section */
+        .hero {
+            background-image: url("path/to/your/hero/image.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #ccc;
+        }
+
+        /* Entails Section */
+        .entails {
+            background-color: #1e1e1e;
+            padding: 40px 0;
+        }
+
+        .entails h2 {
+            font-size: 36px;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 40px;
+        }
+
+        .service-items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .service-item {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .service-item i {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .service-item h3 {
+            font-size: 20px;
+        }
+
+        /* Add any additional styles as needed */
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <i class="bx bx-menu" id="menu-icon"></i>
+            <div class="logo">
+                Law Enforcement System
+            </div>
+            <div class="search-box container">
+                <input type="search" name="" id="" placeholder="search here....">
+            </div>
+            <ul class="nav-links">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="cases.html">Cases</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="officers.html">Officers</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="#login" onclick="openLoginPopup()">Log In</a></li>
+                <li>
+                    <a href="#signup" onclick="openSignUpPopup()">Sign Up</a></li>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Law Enforcement System</h1>
+            <p>Empowering justice and security</p>
+        </div>
+    </section>
+
+    <!-- Entails Section -->
+    <section class="entails">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-items">
+                <div class="service-item">
+                    <i class='bx bxs-dashboard'></i>
+                    <h3>Crime Reporting</h3>
+                    <p>Report crimes online and help keep your community safe.</p>
+                </div>
+                <div class="service-item">
+                    <i class='bx bx-list-ul'></i>
+                    <h3>Case Management</h3>
+                    <p>Efficiently manage and track ongoing investigations.</p>
+                </div>
+                <div class="service-item">
+                    <i class='bx bx-bar-chart'></i>
+                    <h3>Analytics & Insights</h3>
+                    <p>Access valuable data and generate meaningful reports.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add other sections/content as needed -->
+
+    <!-- Log In Popup -->
+    <div id="loginPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <h2>Login</h2>
+            <form onsubmit="return handleLogin()">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+            <div class="bottom-links">
+                <a href="#">Forgot Password?</a>
+                <span>Don't have an account? <a href="#signup" onclick="openSignUpPopup()">Sign Up</a></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign Up Popup -->
+    <div id="signupPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <h2>Sign Up</h2>
+            <form onsubmit="return handleSignUp()">
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="newUsername">Username</label>
+                    <input type="text" id="newUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">Password</label>
+                    <input type="password" id="newPassword" required>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="agreeTerms" required>
+                    <label for="agreeTerms" class="terms-and-conditions">I agree to the <a href="#">Terms & Conditions</a></label>
+                </div>
+                <button type="submit" class="submit-btn">Sign Up</button>
+            </form>
+            <div class="bottom-links">
+                <span>Already have an account? <a href="#login" onclick="openLoginPopup()">Log In</a></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#menu-icon").click(function () {
+                $("#sidebar").toggleClass("active");
+                $("#main-content").toggleClass("active");
+            });
+        });
+
+        function openLoginPopup() {
+            document.getElementById("loginPopup").style.display = "block";
+        }
+
+        function openSignUpPopup() {
+            document.getElementById("signupPopup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("loginPopup").style.display = "none";
+            document.getElementById("signupPopup").style.display = "none";
+        }
+
+        function handleLogin() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Here you can validate the login credentials
+            // For this example, we'll open the dashboard regardless of the credentials
+            if (username !== "" && password !== "") {
+                window.location.href = "dashboard.html";
+                return false; // Prevent form submission
+            } else {
+                alert("Please enter valid login credentials.");
+                return false; // Prevent form submission
+            }
+        }
+
+        function handleSignUp() {
+            const fullName = document.getElementById("fullname").value;
+            const email = document.getElementById("email").value;
+            const newUsername = document.getElementById("newUsername").value;
+            const newPassword = document.getElementById("newPassword").value;
+            const agreeTerms = document.getElementById("agreeTerms").checked;
+
+            // Here you can validate the sign-up details
+            // For this example, we'll open the dashboard if all details are filled and terms accepted
+            if (fullName !== "" && email !== "" && newUsername !== "" && newPassword !== "" && agreeTerms) {
+                // You can perform additional validation here if needed
+
+                // Redirect to dashboard.html
+                window.location.href = "dashboard.html";
+                return false; // Prevent form submission
+            } else {
+                // Optional: Provide specific error messages for different validation conditions
+                return false; // Prevent form submission
+            }
+        }
+
+    </script>
+</body>
+
+</html>
